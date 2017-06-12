@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: REST_API_Gateway
+    
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/    
+
+zuul:
+  routes:
+    Reservierungen:
+      path: /**
+      url: http://localhost:8182
+    Stationen:
+      path: /**
+      url: http://localhost:8181
+    Mitglieder:
+      path: /**
+      url: http://localhost:8180
+      
+server:
+  port: 9876
